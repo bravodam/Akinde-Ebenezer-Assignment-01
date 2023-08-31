@@ -15,12 +15,36 @@ const assignment = {};
  * @returns number the sum of the numbers from 1 to destination
  */
 function sumOfNumbersTo(destination) {
+    if (destination <= 1) {
+        return 0;
+      }
     let sum = 0;
+    for (let i = 1; i <= destination; i++) {
+        sum += i;
+      }
+
     return sum
 }
 
+function sumNumbers(destination) {
+    if (destination <= 1) {
+      return 0; // Return 0 for invalid input
+    }
+  
+     sum = 0;
+    for (let i = 1; i <= destination; i++) {
+      sum += i;
+    }
+  
+    return sum;
+  }
+  
 
-// assignment.sumOfNumbersTo = sumOfNumbersTo;
+
+   
+
+
+   assignment.sumOfNumbersTo = sumOfNumbersTo;
 
 /**
  * Challenge - 2
@@ -33,23 +57,31 @@ function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 function countEvenNumbersWithin(destination) {
-    // Write your code here
+    if (destination <= 1) {
+        return { count: 0, sum: 0, arrayOfEvenNumbers: [] };
+      }
     // get the number from 1 to destination
     let sum = 0;
     let count = 0;
     let arrayOfEvenNumbers = [];
 
-    return {
-        // property value shorthand
+    for (let i = 2; i <= destination; i += 2) {
+        count++;
+        sum += i;
+        arrayOfEvenNumbers.push(i);
+      }
+
+
+ return { count: count, sum: sum, arrayOfEvenNumbers: arrayOfEvenNumbers };
         // when the property name and the value name are the same
         // you can just write the property name in your object
         count,
         sum,
         arrayOfEvenNumbers
     };
-}
 
-// assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+
+ assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
 /**
  * Challenge - 3
@@ -69,10 +101,16 @@ function countEvenNumbersWithin(destination) {
 function celsiusToFahrenheit(arrayOfNumbers) {
     let result = [];
 
+    for (var i = 0; i < arrayOfNumbers.length; i++) {
+        let celsius = arrayOfNumbers[i];
+        let fahrenheit = Math.trunc((celsius * 9/5) + 32); 
+        result.push(fahrenheit);
+      }
+
     return result;
 }
 
-// assignment.celsiusToFahrenheit = celsiusToFahrenheit;
+ assignment.celsiusToFahrenheit = celsiusToFahrenheit;
 
 // ========================
 // DO NOT EDIT THIS BLOCK
